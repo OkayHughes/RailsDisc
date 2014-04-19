@@ -11,3 +11,7 @@
  *= require_self
  *= require_tree .
  */
+
+ #pad_top {
+ 	height: 60px;
+ }
