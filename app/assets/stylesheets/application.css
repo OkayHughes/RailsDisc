@@ -12,6 +12,27 @@
  *= require_tree .
  */
 
- #pad_top {
- 	height: 60px;
- }
+html {
+	position: relative;
+	min-height: 100%;
+}
+
+body {
+	margin-bottom: 60px;
+}
+
+#pad-top {
+	height: 60px;
+}
+
+.container {
+	width: 780px;
+}
+
+#footer {
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	height: 40px;
+	padding-top: 15px;
+}
