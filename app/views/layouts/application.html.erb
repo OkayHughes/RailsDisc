@@ -9,7 +9,17 @@
 <body>
 
 <div class="navbar navbar-default navbar-fixed-top">
-	Navbar stuff stuff stuff
+	Welcome to RailsDisc V-1.2E14 
+	<div style="text-align:right; padding-right:10px">
+	<% if signed_in? %>
+	<%= link_to "Profile", current_user%>
+	<%= link_to "Sign out", signout_path, method: "delete" %>
+	<% else %>
+
+	<%= link_to "Sign in", controller: "sessions", action: "index"%>
+
+	<% end %>
+	</div>
 </div>
 
 <div class="container">
