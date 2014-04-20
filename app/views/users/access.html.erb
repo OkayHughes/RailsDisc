@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+<div class="center">
+<%= gravatar_for user: @user, class: "avatar_down center", size: "78"%>
+<span class="center inline filled padded">
+
+<strong>Group:</strong>
+<%= @user.group %> |
+<strong>Name:</strong>
+<%= @user.name %> |
+<strong>Email:</strong>
+<%= @user.email %>	
+
+
+
+<br>
+<%= link_to 'Edit', edit_user_path(@user) %> |
+<%= link_to 'Back', root_url%>
+</span>
+</div>
+<%=render @user.posts.reverse %>

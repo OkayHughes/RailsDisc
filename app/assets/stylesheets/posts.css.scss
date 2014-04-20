@@ -4,6 +4,7 @@
 
 @import "bootstrap_config.scss";
 
+
 .avatar {
 	border-radius: 5px 0 0 5px;
 	border: solid 1px #777;
@@ -46,4 +47,32 @@ a.dark-link, .dark-link {
 	border-radius: $border-radius-large;
 	margin-bottom: 30px;
 	padding: 8px;
+}
+.title_field{
+	border-radius: $border-radius-small;	
+}
+
+.text_entry{
+	background-color:white;
+	padding:10px;
+	margin-left:px;
+	border-radius: 0 $border-radius-medium $border-radius-medium 0;
+	padding-left:100px;
+	margin-left:-100px;
+	margin-top:20px;
+}
+.inline {
+	display: inline-block;
+}
+.center {
+	text-align:center;
+}
+.button {
+	border:none;
+	border-radius:$border-radius-small;
+	background-color:#7a7a7a;	
+	text-align:center;
+	padding-left:50px;
+	padding-right:50px;
+	color:#ffffff;
 }
