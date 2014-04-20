@@ -3,7 +3,8 @@ Example::Application.routes.draw do
 
   root "posts#index"
   #user resources 
-  resources :users
+  resources :users, except: [:show]
+  match "/users/:id", to: "users#access", via: "get"
   #sessions methods
   resources :sessions, only: [:new, :create, :destroy]
   get "/sessions" => "sessions#index"

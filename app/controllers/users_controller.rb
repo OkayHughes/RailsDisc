@@ -10,6 +10,7 @@ class UsersController < ApplicationController
   # GET /users/1
   # GET /users/1.json
   def show
+
   end
 
   # GET /users/new
@@ -59,6 +60,17 @@ class UsersController < ApplicationController
     respond_to do |format|
       format.html { redirect_to users_url }
       format.json { head :no_content }
+    end
+  end
+
+  def access
+    @user = User.find(params[:id])
+    if signed_in?
+      if current_user.password_digest != (@user).password_digest
+        redirect_to root_url
+      end
+    else
+      redirect_to root_url
     end
   end
 
