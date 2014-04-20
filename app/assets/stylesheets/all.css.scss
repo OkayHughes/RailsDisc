@@ -18,3 +18,27 @@
 	background: darken($body-bg, 10%);
 	border: none;
 }
+
+.navbar_login {
+	position: absolute;
+	right: 8px;
+	font-size: 14px;
+	width: 50%;
+	text-align: right;
+}
+
+.navbar_bottom {
+	padding-left: 8px;
+}
+
+.navbar_title {
+	padding: 8px;
+}
+
+.user_profile {
+	padding-bottom: 30px;
+}
+
+.avatar_down {
+	border-radius: $border-radius-base
+}

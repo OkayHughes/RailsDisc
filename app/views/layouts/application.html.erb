@@ -9,17 +9,7 @@
 <body>
 
 <div class="navbar navbar-default navbar-fixed-top" role="navigation">
-	Welcome to RailsDisc V-1.2E14 
-	<div style="text-align:right; padding-right:10px">
-	<% if signed_in? %>
-	<%= link_to "Profile", current_user%>
-	| <%= link_to "Sign out", signout_path, method: "delete" %>
-	<% else %>
-
-	<%= link_to "Sign in", controller: "sessions", action: "index"%>
-
-	<% end %>
-	</div>
+	<%= render "layouts/navbar" %>
 </div>
 
 <div class="container">
@@ -30,7 +20,7 @@
 
 <div id="footer">
 	<div class="container">
-		This is the footer for the page.
+		&copy; 2014 by C&amp;O Railways.
 	</div>
 </div>
 
