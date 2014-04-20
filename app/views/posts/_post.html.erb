@@ -1,10 +1,19 @@
 <div class="post">
 	<%= gravatar_for user:post.user, size: 50, class: "avatar" %>
 	<div class="post_topbar">
-		<%= link_to post.title, post_path(post), class: "post_title dark-link" %><br>
+		<%= link_to post.title, post_path(post), class: "post_title dark-link" %>
+		<% if post.user == current_user %>
+			<span class="post_smallitem">
+				<%= link_to "Edit", edit_post_path(post), class: "dark-link" %>
+				<%if true# if post == 0 %>
+					| <%= link_to "Delete", post_path(post), method: :delete, data: {confirm: "Are you sure?"}, class: "dark-link" %>
+				<% end %>
+			</span>
+		<% end %>
+		<br>
 		<%= link_to post.user.name, user_path(post.user), class: "post_author dark-link"%>
 	</div>
 	<div class="post_content">
-		<%= post.content %>
+		<%= raw post.content %>
 	</div>
 </div>
