@@ -1,7 +1,14 @@
 <div class="post">
-	<img src="http://www.gravatar.com/avatar/00000000000000000000000000000000?d=mm&s=50" alt="" class="avatar">
+	<% if post.user != nil %>
+	<%= gravatar_for user:post.user, size: 50, class: "avatar" %>
+	<% else %>
+	<%= gravatar_for size: 50, class: "avatar" %>
+	<% end %>
 	<div class="post_topbar">
-		<span class="post_title"><%= post.title %></span>
+		<span class="post_title"><%= post.title %></span><br>
+		<% if post.user %>
+		<span class="post_author"><%= post.user.name %></span>
+		<% end %>
 	</div>
 	<div class="post_content">
 		<%= post.content %>
