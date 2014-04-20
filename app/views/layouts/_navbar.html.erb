@@ -1,0 +1,14 @@
+<div class="navbar_top">
+	<span class="navbar_title"> Welcome to Discussion Board v0.1 </span>
+	<span class="navbar_login">
+		<% if signed_in? %>
+			<%= link_to "Profile", current_user%>
+			| <%= link_to "Sign out", signout_path, method: "delete" %>
+		<% else %>
+			<%= link_to "Sign in", controller: "sessions", action: "index"%>
+		<% end %>
+	</span>
+</div>
+<div class="navbar_bottom">
+	<%= link_to "Home", posts_path %>
+</div>

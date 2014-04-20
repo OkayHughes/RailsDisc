@@ -1,14 +1,8 @@
 <div class="post">
-	<% if post.user != nil %>
 	<%= gravatar_for user:post.user, size: 50, class: "avatar" %>
-	<% else %>
-	<%= gravatar_for size: 50, class: "avatar" %>
-	<% end %>
 	<div class="post_topbar">
-		<span class="post_title"><%= post.title %></span><br>
-		<% if post.user %>
-		<span class="post_author"><%= post.user.name %></span>
-		<% end %>
+		<%= link_to post.title, post_path(post), class: "post_title dark-link" %><br>
+		<%= link_to post.user.name, user_path(post.user), class: "post_author dark-link"%>
 	</div>
 	<div class="post_content">
 		<%= post.content %>
