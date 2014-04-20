@@ -1,5 +1,9 @@
+<script src="http://js.nicedit.com/nicEdit-latest.js" type="text/javascript"></script>
+<script type="text/javascript">bkLib.onDomLoaded(nicEditors.allTextAreas);</script>
+<span class="text_entry inline">		
 <%= form_for @post do |f| %>
-	<p> <%= f.text_field :title, placeholder: "Title" %> </p>
-	<p> <%= f.text_area :content %> </p>
-	<%= f.submit %>
+	<div > <%= f.text_field :title, placeholder: "Title", size: "168", class: "title_field" %> </p>
+	<p> <%= f.text_area :content, cols: "170" , rows: "15", class: "content_field"%> </p>
+	<p class="center"><%= f.submit class: "button" %> </p>
 <% end %>
+</span>
