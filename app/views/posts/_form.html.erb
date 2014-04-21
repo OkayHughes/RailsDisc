@@ -2,8 +2,8 @@
 <script type="text/javascript">bkLib.onDomLoaded(nicEditors.allTextAreas);</script>
 <span class="text_entry inline">		
 <%= form_for @post do |f| %>
-	<div > <%= f.text_field :title, placeholder: "Title", size: "100", class: "title_field" %> </p>
-	<p> <%= f.text_area :content, cols: "100" , rows: "15", class: "content_field"%> </p>
+	<p> <%= f.text_field :title, placeholder: "Title", size: "168", class: "title_field" %> </p>
+	<p> <%= f.text_area :content, cols: "170" , rows: "15", class: "content_field"%> </p>
 	<p class="center"><%= f.submit class: "button" %> </p>
 <% end %>
 </span>

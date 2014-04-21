@@ -1,3 +1,4 @@
 tmp
 log/development.log
 db/*.sqlite3
+*.DS_Store
