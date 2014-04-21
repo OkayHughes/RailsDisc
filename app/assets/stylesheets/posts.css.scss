@@ -81,3 +81,19 @@ a.dark-link, .dark-link {
 	padding-right:50px;
 	color:#ffffff;
 }
+
+.line-separator{
+
+height:1px;
+
+background:#777;
+
+border-bottom:1px solid #313030;
+
+}
+.comment{
+	background-color:white;
+	padding:10px;
+	margin-left:px;
+	border-radius: 0 $border-radius-medium $border-radius-medium 0;
+}

@@ -18,4 +18,6 @@
 	</div>
 	<div id="comments"></div>
 	<%= render post.comments %>
+	<% @comment = Comment.new() %>
+	<%= render partial: "form_comment", locals: {commentable: post} %>
 </div>

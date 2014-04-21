@@ -7,6 +7,7 @@ Example::Application.routes.draw do
   match "/users/:id", to: "users#access", via: "get"
   #sessions methods
   resources :sessions, only: [:new, :create, :destroy]
+  resources :comments
   get "/sessions" => "sessions#index"
   match '/signout', to: 'sessions#destroy',     via: 'delete'
   match '/render_comments/', to: 'comments#render_comments', via: 'get'
