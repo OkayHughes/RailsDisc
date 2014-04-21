@@ -2,6 +2,8 @@
 	<span class="navbar_title"> Welcome to Discussion Board v0.1 </span>
 	<span class="navbar_login">
 		<% if signed_in? %>
+			<%= gravatar_for user: User.find(current_user), size: "24", class: "navbar_avatar" %>
+			<span class="fill_light_grey inline navbar_links">
 			<%= link_to "Profile", current_user%>
 			| <%= link_to "Sign out", signout_path, method: "delete" %>
 		<% else %>
