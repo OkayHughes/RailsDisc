@@ -1,0 +1,14 @@
+// Place all the styles related to the comments controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+@import "bootstrap_config.scss";
+
+.comment_container{
+	background-color: #ffffff;
+	border-radius: 0 0 $border-radius-medium  $border-radius-medium;
+}
+
+.inline {
+	display: inline-block;
+}
