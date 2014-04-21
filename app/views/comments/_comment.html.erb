@@ -1,0 +1,11 @@
+<span class="inline">
+<%= gravatar_for user: User.find(comment.user_id), size: "25", class: "comment_avatar"%>
+<br>
+<span class="filled inline">
+<%= raw comment.content   %>
+</span>
+</span>
+<br>
+reply
+<br>
+<br>

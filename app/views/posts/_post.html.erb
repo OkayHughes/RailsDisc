@@ -16,8 +16,11 @@
 	<div class="post_content">
 		<%= raw post.content %>
 	</div>
-	<div id="comments"></div>
+	<div class="line-separator"> </div><br>
+	<div class="">
 	<%= render post.comments %>
+	</div>
+	<div class="line-separator"> </div><br>
 	<% @comment = Comment.new() %>
-	<%= render partial: "form_comment", locals: {commentable: post} %>
+	<%= render partial: "/posts/form_comment", locals: {commentable: post, type: "Post"} %>
 </div>

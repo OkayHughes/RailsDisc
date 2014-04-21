@@ -97,3 +97,8 @@ border-bottom:1px solid #313030;
 	margin-left:px;
 	border-radius: 0 $border-radius-medium $border-radius-medium 0;
 }
+.word_wrap {
+	white-space:normal;
+	overflow-wrap: break-word;
+   word-wrap: break-word;      /* IE */
+}
