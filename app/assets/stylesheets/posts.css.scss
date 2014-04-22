@@ -6,9 +6,9 @@
 
 
 .avatar {
-	border-radius: 5px 0 0 5px;
+	border-radius: $border-radius-base;
 	border: solid 1px #777;
-	margin-left: -60px;
+	margin-left: -68px;
 	margin-top: -8px;
 	z-index: -100;
 	float: left;
@@ -35,7 +35,7 @@ a.dark-link, .dark-link {
 
 .post_topbar {
 	background: #777;
-	border-radius: 0 $border-radius-large 0 0;
+	border-radius: $border-radius-large $border-radius-large 0 0;
 	margin: -8px -8px 0 -8px;
 	height: 52px;
 }
@@ -69,9 +69,6 @@ a.dark-link, .dark-link {
 .center {
 	text-align:center;
 }
-.right {
-	text-align:right;
-}
 .button {
 	border:none;
 	border-radius:$border-radius-small;
@@ -80,20 +77,4 @@ a.dark-link, .dark-link {
 	padding-left:50px;
 	padding-right:50px;
 	color:#ffffff;
-}
-
-.line-separator{
-
-height:1px;
-
-background:#777;
-
-border-bottom:1px solid #313030;
-
-}
-.comment{
-	background-color:white;
-	padding:10px;
-	margin-left:px;
-	border-radius: 0 $border-radius-medium $border-radius-medium 0;
 }
