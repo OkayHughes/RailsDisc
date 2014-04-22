@@ -1,10 +1,10 @@
 <script src="http://js.nicedit.com/nicEdit-latest.js" type="text/javascript"></script>
 <script type="text/javascript">bkLib.onDomLoaded(nicEditors.allTextAreas);</script>
-<div class="line-separator"> </div><br>
 <span class=" inline">		
 <%= form_for @comment do |f| %>
 	<p> <%= f.text_area :content, cols: "70" , rows: "2", class: "content_field", id:"comment_form"%> </p>
-	<%= f.hidden_field :post_id, :value => commentable.id %>
+	<%= f.hidden_field :commentable_type, :value => type %>
+	<%= f.hidden_field :commentable_id, :value => commentable.id %>
 	<p class="center"><%= f.submit class: "button"%> </p>
 <% end %>
 </span>

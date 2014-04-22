@@ -12,3 +12,23 @@
 .inline {
 	display: inline-block;
 }
+.offset{
+	margin-left:100px;
+}
+
+.filled{
+	background-color:#e3e3e3;
+	border-radius: 0 $border-radius-small $border-radius-small $border-radius-small ;
+	padding:5px;
+}
+.word_wrap {
+	white-space:normal;
+	overflow-wrap: break-word;
+   word-wrap: break-word;      /* IE */
+}
+.comment_avatar{
+	border-radius: 5px 5px 0 0;
+	border: solid 1px #777;
+	margin-bottom:-3px;
+
+}
