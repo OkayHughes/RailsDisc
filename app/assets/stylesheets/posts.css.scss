@@ -8,13 +8,40 @@
 .avatar {
 	border-radius: $border-radius-base;
 	border: solid 1px #777;
-	margin-left: -68px;
-	margin-top: -8px;
-	z-index: -100;
 	float: left;
 	position: absolute;
 }
 
+a.dark-link, .dark-link {
+	color: $text-color;
+}
+
+// Main CSS for the post
+.post {
+	margin-bottom: 30px;
+	margin-left: 60px;
+}
+
+.post_topbar {
+	background: #777;
+	border-radius: $border-radius-base $border-radius-base 0 0;
+	height: 52px;
+}
+
+.post_content {
+	padding: 8px;
+	background: white;
+}
+
+.post_comments {
+	padding: 8px;
+	background: white;
+	border-top: 1px dashed $color-border;
+	border-bottom: 2px solid $color-border;
+	border-radius: 0 0 $border-radius-small $border-radius-small;
+}
+
+// Elements inside the post's top bar
 .post_title {
 	padding-left: 8px;
 	padding-bottom: 0;
@@ -29,27 +56,7 @@
 	padding-left: 8px;
 }
 
-a.dark-link, .dark-link {
-	color: $text-color;
-}
-
-.post_topbar {
-	background: #777;
-	border-radius: $border-radius-large $border-radius-large 0 0;
-	margin: -8px -8px 0 -8px;
-	height: 52px;
-}
-
-.post_content {
-	padding: 4px;
-}
-
-.post {
-	background: #FFF;
-	border-radius: $border-radius-large;
-	margin-bottom: 30px;
-	padding: 8px;
-}
+// Post form
 .title_field{
 	border-radius: $border-radius-small;	
 }
@@ -76,24 +83,9 @@ a.dark-link, .dark-link {
 	text-align:center;
 	padding-left:50px;
 	padding-right:50px;
-	color:#ffffff;
+	color: white;
 }
 
-.line-separator{
-
-height:1px;
-
-background:#777;
-
-border-bottom:1px solid #313030;
-
-}
-.comment{
-	background-color:white;
-	padding:10px;
-	margin-left:px;
-	border-radius: 0 $border-radius-medium $border-radius-medium 0;
-}
 .word_wrap {
 	white-space:normal;
 	overflow-wrap: break-word;

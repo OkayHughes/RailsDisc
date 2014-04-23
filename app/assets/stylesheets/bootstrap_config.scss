@@ -1,5 +1,8 @@
 $body-bg: #EEE;
-$border-radius-large: 15px;
-$border-radius-medium:10px;
-$border-radius-small:5px;
+$border-radius-base:	6px;
+$border-radius-large:	$border-radius-base * 3;
+$border-radius-medium:	$border-radius-base * 2;
+$border-radius-small:	$border-radius-base;
+$color-border: #CCC;
+$padding-base: 8px;
 @import "bootstrap";
