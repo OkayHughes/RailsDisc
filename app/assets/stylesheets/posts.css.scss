@@ -34,7 +34,7 @@ a.dark-link, .dark-link {
 }
 
 .post_topbar {
-	background: #777;
+	background: $dark-bg;
 	border-radius: $border-radius-large $border-radius-large 0 0;
 	margin: -8px -8px 0 -8px;
 	height: 52px;
@@ -80,13 +80,9 @@ a.dark-link, .dark-link {
 }
 
 .line-separator{
-
-height:1px;
-
-background:#777;
-
-border-bottom:1px solid #313030;
-
+	height:1px;
+	background:#777;
+	border-bottom:1px solid #EEE;/*313030;*/
 }
 .comment{
 	background-color:white;

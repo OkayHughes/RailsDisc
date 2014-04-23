@@ -17,8 +17,9 @@
 }
 
 .filled{
-	background-color:#e3e3e3;
-	border-radius: 0 $border-radius-small $border-radius-small $border-radius-small ;
+	background-color: $dark-bg;
+	height: 30px;
+	border-radius: $border-radius-small;
 	padding:5px;
 }
 .word_wrap {
@@ -27,8 +28,7 @@
    word-wrap: break-word;      /* IE */
 }
 .comment_avatar{
-	border-radius: 5px 5px 0 0;
+	border-radius: $border-radius-small;
 	border: solid 1px #777;
-	margin-bottom:-3px;
-
+	margin-bottom: 2px;
 }

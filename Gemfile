@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 
 gem 'therubyracer'
 gem 'execjs'
+gem 'bootstrap-wysihtml5-rails', '~> 0.3.1.24'
 
 ruby '2.0.0'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
