@@ -1,26 +1,20 @@
 @import "bootstrap_config.scss";
 
 .avatar_down {
-	border-radius: $border-radius-medium 0 0 $border-radius-medium;
+	border-radius: $border-radius-small;
 	border: solid 1px #777;
     margin-bottom:22px;
-    margin-right:-10px;
+    float: left;
 }
-.center {
-	text-align:center;
+
+.user_profile_bar {
+	background-color: #777;
+	border-radius: $border-radius-small;
+	text-align: center;
+	padding: 20px;
+	margin-left: 88px;
 }
-.left {
-	text-align:left;
-}
-.right {
-	text-align:right;
-}
-.filled{
-	background-color: #777777;
-}
-.inline {
-	display: inline-block;
-}
+
 .padded {
 	padding-top:10px;
 	border-radius: 0 $border-radius-medium $border-radius-medium 0;

@@ -18,7 +18,7 @@ module UsersHelper
 			c = options[:class]
 		end
 		
-		gravatar_url = "https://secure.gravatar.com/avatar/#{gravatar_id}?s=#{size}&d=mm"
+		gravatar_url = "https://secure.gravatar.com/avatar/#{gravatar_id}?s=#{size}&d=identicon"
 		image_tag(gravatar_url, alt: name, class: c)
 	end
 end
