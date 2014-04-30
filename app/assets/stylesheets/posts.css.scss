@@ -16,6 +16,10 @@ a.dark-link, .dark-link {
 	color: $text-color;
 }
 
+a.dark-link:hover, .dark-link:hover {
+	color: darken($text-color, 20%);
+}
+
 // Main CSS for the post
 .post {
 	margin-bottom: 30px;
@@ -90,4 +94,17 @@ a.dark-link, .dark-link {
 	white-space:normal;
 	overflow-wrap: break-word;
    word-wrap: break-word;      /* IE */
+}
+
+.post_replies {
+	margin-left: 60px;
+}
+
+.post_titleinfo {
+	float: left;
+}
+
+.post_tree {
+	float: right;
+	line-height: 100%;
 }

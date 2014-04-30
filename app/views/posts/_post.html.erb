@@ -1,25 +1,36 @@
 <%= gravatar_for user:post.user, size: 50, class: "avatar" %>
 <div class="post">
 	<div class="post_topbar">
-		<%= link_to post.title, post_path(post), class: "post_title dark-link" %>
-		<% if post.user == current_user %>
-			<span class="post_smallitem">
-				(
-				<%= link_to "Edit", edit_post_path(post), class: "dark-link" %>
-				<%if true# if post == 0 %>
-					| <%= link_to "Delete", post_path(post), method: :delete, data: {confirm: "Are you sure?"}, class: "dark-link" %>
-				<% end %>
-				)
-			</span>
-		<% end %>
-		<br>
-		<span class="post_info">
-			By <%= link_to post.user.name, user_path(post.user), class: "dark-link"%>,
-			posted <%= time_ago_in_words(post.created_at) %>
-			ago<% if post.created_at == post.updated_at %>.<% else %>, <!-- handle the punctution (comma vs period) -->
-				last edited <%= time_ago_in_words(post.updated_at) %> ago.
+		<div class="post_titleinfo">
+			<%= link_to post.title, post_path(post), class: "post_title dark-link" %>
+			<% if post.user == current_user %>
+				<span class="post_smallitem">
+					(
+					<%= link_to "Edit", edit_post_path(post), class: "dark-link" %>
+					<%if true# if post == 0 %>
+						| <%= link_to "Delete", post_path(post), method: :delete, data: {confirm: "Are you sure?"}, class: "dark-link" %>
+					<% end %>
+					)
+				</span>
 			<% end %>
-		</span>
+			<br>
+			<span class="post_info">
+				By <%= link_to post.user.name, user_path(post.user), class: "dark-link"%>,
+				posted <%= time_ago_in_words(post.created_at) %>
+				ago<% if post.created_at == post.updated_at %>.<% else %>, <!-- handle the punctution (comma vs period) -->
+					last edited <%= time_ago_in_words(post.updated_at) %> ago.
+				<% end %>
+			</span>
+		</div>
+		<div class="post_tree">
+			<% if post.parent %>
+				In reply to "<%= link_to post.parent.title, post_path(post.parent), class: "dark-link" %>" <br>
+			<% end %>
+			<%= link_to "Reply to this post", post_reply_path(post), class: "dark-link" %> <br>
+			<% if post.replies.count %>
+				<%= pluralize(post.replies.count, 'reply') %>
+			<% end %>
+		</div>
 	</div>
 	
 	<div class="post_content">

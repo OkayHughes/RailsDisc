@@ -1,1 +1,5 @@
-<%= render @posts.reverse %>
+<% for post in @posts.reverse %>
+	<% if post.parent == nil %>
+		<%= render post %>
+	<% end %>
+<% end %>
