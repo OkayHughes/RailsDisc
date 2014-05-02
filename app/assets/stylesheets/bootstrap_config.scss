@@ -1,5 +1,28 @@
 $body-bg: #EEE;
-$border-radius-large: 15px;
-$border-radius-medium:10px;
-$border-radius-small:5px;
+
+$color-primary: $body-bg;
+$color-secondary: darken($body-bg, 10%);
+$color-topbar: #EB5A50;
+
+$navbar-bg: $color-secondary;
+$navbar-text: #EB5A50;
+
+$border-radius-base:	6px;
+$border-radius-large:	$border-radius-base * 3;
+$border-radius-medium:	$border-radius-base * 2;
+$border-radius-small:	$border-radius-base;
+
+$color-border: #CCC;
+$padding-base: 8px;
+$margin-base: 8px;
+
+.container {
+	padding: 0;
+}
+
 @import "bootstrap";
+
+$color-link: white;
+$color-link-hover: white;
+$color-link-dark: $text-color;
+$color-link-dark-hover: lighten($text-color, 20%);

@@ -14,3 +14,20 @@
 //= require turbolinks
 //= require bootstrap
 //= require_tree .
+
+function elide(id) {
+	var e = document.getElementById(id);
+	if(e.style.height == '0px') {
+   		e.style.height = '';
+   	} else {
+		e.style.height = '0px';
+   	}
+}
+
+function toggle_plus(id) {
+	var e = document.getElementById(id);
+	if (e.className.match(/plus/))
+		e.className = e.className.replace(/plus/, "minus");
+	else
+		e.className = e.className.replace(/minus/, "plus");
+}

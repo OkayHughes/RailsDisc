@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <span class="inline">
 <%= gravatar_for user: User.find(comment.user_id), size: "25", class: "comment_avatar"%>
 <br>
@@ -10,3 +11,20 @@
 <br>
 <div id="1"> </div>
 <br>
+=======
+<div class="comment">
+	<%= gravatar_for user: comment.user, size: "30", class: "comment_avatar"%>
+	<span class="comment_author"> <%= comment.user.name %> </span>
+	<div class="comment_content">
+		<%= raw comment.content %>
+	</div>
+	<div class="comment_info">
+		<% if comment.updated_at != comment.created_at %> Edited <% end %>
+		<%= time_ago_in_words(comment.updated_at) %> ago
+		<% if comment.user == current_user %>
+			| edit
+		<% end %>
+		| reply
+	</div>
+</div>
+>>>>>>> 32cf4f447a67d9399a2c545587af5e5214b4f043

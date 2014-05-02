@@ -1,7 +1,7 @@
 <p id="notice"><%= notice %></p>
-<div class="center user_profile">
-	<%= gravatar_for user: @user, class: "avatar_down center", size: "78"%>
-	<span class="center inline filled padded">
+<div class="user_profile">
+	<%= gravatar_for user: @user, class: "avatar_down", size: "78"%>
+	<div class="user_profile_bar">
 
 		<strong>Group:</strong> <%= @user.group %> 
 		| <strong>Name:</strong> <%= @user.name %> 
@@ -10,6 +10,6 @@
 		<br>
 		<%= link_to 'Edit', edit_user_path(@user) %> |
 		<%= link_to 'Back', root_url%>
-	</span>
+	</div>
 </div>
 <%=render @user.posts.reverse %>

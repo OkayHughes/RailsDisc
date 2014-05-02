@@ -1,11 +1,12 @@
 Example::Application.routes.draw do
-  resources :posts
-
   root "posts#index"
-  #user resources 
+  # User resources 
   resources :users, except: [:show]
   match "/users/:id", to: "users#access", via: "get"
-  #sessions methods
+  # Post resources
+  resources :posts
+  get "/posts/reply/:id" => "posts#reply"
+  # Sessions methods
   resources :sessions, only: [:new, :create, :destroy]
   resources :comments
   get "/sessions" => "sessions#index"

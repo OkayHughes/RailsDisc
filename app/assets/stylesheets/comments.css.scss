@@ -4,14 +4,41 @@
 
 @import "bootstrap_config.scss";
 
+$comment-height: 30px;
+
 .comment_container{
 	background-color: #ffffff;
 	border-radius: 0 0 $border-radius-medium  $border-radius-medium;
 }
 
-.inline {
-	display: inline-block;
+.comment {
+	// background: #F2F2F2;
+	border-radius: $border-radius-small;
+	margin-bottom: 10px;
 }
+
+.comment_avatar{
+	border-radius: $border-radius-small;
+	border: 1px solid $color-border;
+}
+
+.comment_author {
+	vertical-align: top;
+	font-size: .8em;
+}
+
+.comment_content {
+	min-height: $comment-height;
+	margin-left: 32px;
+	margin-top: -25px;
+	padding: 5px;
+}
+
+.comment_info {
+	font-size: .8em;
+	margin-left: 37px;
+}
+
 .offset{
 	margin-left:100px;
 }
@@ -25,10 +52,4 @@
 	white-space:normal;
 	overflow-wrap: break-word;
    word-wrap: break-word;      /* IE */
-}
-.comment_avatar{
-	border-radius: 5px 5px 0 0;
-	border: solid 1px #777;
-	margin-bottom:-3px;
-
 }

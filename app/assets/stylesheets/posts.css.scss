@@ -4,101 +4,119 @@
 
 @import "bootstrap_config.scss";
 
+$collapse-width: 768px;
 
-.avatar {
-	border-radius: 5px 0 0 5px;
-	border: solid 1px #777;
-	margin-left: -60px;
-	margin-top: -8px;
-	z-index: -100;
-	float: left;
+.post .avatar {
+	border-radius: $border-radius-base;
+	border: solid 1px $color-border;
 	position: absolute;
 }
 
-.post_title {
-	padding-left: 8px;
-	padding-bottom: 0;
-	font-size: 24px;
-}
-
-.post_author {
-	float: left;
-	margin-top: -8px;
-	vertical-align: top;
-	vertical-align: bottom;
-	padding-left: 8px;
-}
-
-a.dark-link, .dark-link {
-	color: $text-color;
-}
-
-.post_topbar {
-	background: #777;
-	border-radius: 0 $border-radius-large 0 0;
-	margin: -8px -8px 0 -8px;
-	height: 52px;
-}
-
-.post_content {
-	padding: 4px;
-}
-
+// Main CSS for the post
 .post {
-	background: #FFF;
-	border-radius: $border-radius-large;
-	margin-bottom: 30px;
-	padding: 8px;
+	padding-bottom: 30px;
 }
+
+.post .offset {
+	margin-left: 60px;
+	@media screen and (max-width: $collapse-width) {
+		margin-left: 0;
+	}
+}
+
+.post .topbar {
+	position: relative;
+	background: $color-topbar;
+	border-radius: $border-radius-base $border-radius-base 0 0;
+	@media screen and (max-width: $collapse-width) {
+		border-radius: 0;
+	}
+	min-height: 52px;
+}
+
+.topbar:after {
+	content: ".";
+	display: block;
+	height: 0;
+	clear: both;
+	visibility: hidden;
+}
+
+.post .content {
+	padding: 8px;
+	background: white;
+}
+
+.post .comments {
+	padding: 8px;
+	background: white;
+	border-top: 1px dashed $color-border;
+	border-bottom: 2px solid $color-border;
+	border-radius: 0 0 $border-radius-small $border-radius-small;
+	@media screen and (max-width: $collapse-width) {
+		border-radius: 0;
+	}
+	overflow: hidden;
+}
+
+.comments hr {
+	margin-top: 8px;
+	border-style: dashed;
+}
+
+// Elements inside the post's top bar
+.post .title {
+	padding-bottom: 0;
+	font-size: 20px;
+	@media screen and (max-width: $collapse-width) {
+		font-size: 18px;
+	}
+	width: auto;
+	line-height: 1em;
+}
+
+.post_info {
+	float: left;
+	padding-bottom: 8px;
+	font-size: small;
+	line-height: 1.2em;
+}
+
+// Post form
 .title_field{
 	border-radius: $border-radius-small;	
 }
 
-.text_entry{
+.post_form{
 	background-color:white;
 	padding:10px;
-	margin-left:px;
-	border-radius: 0 $border-radius-medium $border-radius-medium 0;
-	padding-left:100px;
-	margin-left:-100px;
+	border-radius: $border-radius-medium;
+	padding-bottom: 45px;
 	margin-top:20px;
 }
 .inline {
 	display: inline-block;
 }
-.center {
-	text-align:center;
-}
-.right {
-	text-align:right;
-}
-.button {
-	border:none;
-	border-radius:$border-radius-small;
-	background-color:#7a7a7a;	
-	text-align:center;
-	padding-left:50px;
-	padding-right:50px;
-	color:#ffffff;
-}
 
-.line-separator{
-
-height:1px;
-
-background:#777;
-
-border-bottom:1px solid #313030;
-
-}
-.comment{
-	background-color:white;
-	padding:10px;
-	margin-left:px;
-	border-radius: 0 $border-radius-medium $border-radius-medium 0;
-}
 .word_wrap {
 	white-space:normal;
 	overflow-wrap: break-word;
    word-wrap: break-word;      /* IE */
+}
+
+.post_replies {
+	margin-left: 60px;
+}
+
+.post_titleinfo {
+	padding-left: 8px;
+	margin-right: 70px;
+}
+
+.post_tree {
+	position: absolute;
+	right: 4px;
+	top: 4px;
+	line-height: 1em;
+	text-align: right;
 }
