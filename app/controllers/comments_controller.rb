@@ -15,6 +15,14 @@ class CommentsController < ApplicationController
  			render @post.comments 
 	end
 
+	def send_form
+		@comment = Comment.new()
+		@commentable = Comment.find(params[:id])
+		@id = params[:id]
+		respond_to do |format|
+			format.js {render layout: false}
+		end
+	end
 
 
 	private

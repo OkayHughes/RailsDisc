@@ -20,8 +20,8 @@
 	<div class="">
 	<%= render post.comments %>
 	</div>
+
 	<% if signed_in? %>
-	<div class="line-separator"> </div><br>
 	<% @comment = Comment.new() %>
 	<%= render partial: "/posts/form_comment", locals: {commentable: post, type: "Post"} %>
 	<% end %>
