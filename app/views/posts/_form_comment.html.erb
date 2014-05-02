@@ -5,7 +5,7 @@
 	<p> <%= f.text_area :content, cols: "70" , rows: "2", class: "content_field", id:"comment_form"%> </p>
 	<%= f.hidden_field :commentable_type, :value => type %>
 	<%= f.hidden_field :commentable_id, :value => commentable.id %>
-	<p class="center"><%= f.submit class: "button"%> </p>
+	<p class="center"><%= f.submit class: "btn btn-default"%> </p>
 <% end %>
 </span>
 

@@ -2,7 +2,7 @@
 
 #footer {
 	position: absolute;
-	background: darken($body-bg, 10%);
+	background: $color-secondary;
 	bottom: 0;
 	width: 100%;
 	height: 40px;
@@ -15,8 +15,17 @@
 }
 
 .navbar.navbar-default.navbar-fixed-top {
-	background: darken($body-bg, 10%);
+	background: $navbar-bg;
 	border: none;
+}
+
+.navbar_content {
+	padding: $padding-base;
+	color: $navbar-text;
+}
+
+.navbar_content a {
+	color: $navbar-text;
 }
 
 .navbar_login {
@@ -59,4 +68,13 @@
 }
 .inline {
 	display: inline-block;
+}
+
+a.dark-link, .dark-link {
+	color: $color-link-dark;
+}
+
+a.dark-link:hover, .dark-link:hover {
+	color: $color-link-dark-hover;
+	text-decoration: none;
 }

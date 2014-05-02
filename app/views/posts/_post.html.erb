@@ -1,49 +1,65 @@
-<%= gravatar_for user:post.user, size: 50, class: "avatar" %>
-<div class="post">
-	<div class="post_topbar">
-		<div class="post_titleinfo">
-			<%= link_to post.title, post_path(post), class: "post_title dark-link" %>
-			<% if post.user == current_user %>
-				<span class="post_smallitem">
-					(
-					<%= link_to "Edit", edit_post_path(post), class: "dark-link" %>
-					<%if true# if post == 0 %>
-						| <%= link_to "Delete", post_path(post), method: :delete, data: {confirm: "Are you sure?"}, class: "dark-link" %>
-					<% end %>
-					)
-				</span>
-			<% end %>
-			<br>
-			<span class="post_info">
-				By <%= link_to post.user.name, user_path(post.user), class: "dark-link"%>,
-				posted <%= time_ago_in_words(post.created_at) %>
-				ago<% if post.created_at == post.updated_at %>.<% else %>, <!-- handle the punctution (comma vs period) -->
-					last edited <%= time_ago_in_words(post.updated_at) %> ago.
+<div id="<%= dom_id post %>" class="post">
+	<%= gravatar_for user:post.user, size: 50, class: "avatar" %>
+	<div class="offset">
+		<div class="topbar">
+			<div class="post_titleinfo">
+				
+				<%= link_to post.title, post_path(post), class: "title dark-link" %>
+				
+				<!-- User buttons -->
+				<% if post.user == current_user %>
+					<span class="post_smallitem">
+						(
+						<%= link_to edit_post_path(post), class: "dark-link"  do %>
+							<span class="glyphicon glyphicon-pencil"></span><% end %>
+						<%if post.replies.count == 0 %>
+							| <%= link_to post_path(post), method: :delete, data: {confirm: "Are you sure?"}, class: "dark-link"  do %>
+								<span class="glyphicon glyphicon-trash"></span><% end %>
+						<% end %>
+						)
+					</span>
 				<% end %>
-			</span>
+				<br>
+				
+				<!-- Date time etc. -->
+				<span class="post_info">
+					By <%= link_to post.user.name, user_path(post.user), class: "dark-link"%>,
+					posted <%= time_ago_in_words(post.created_at) %>
+					ago<% if post.created_at == post.updated_at -%>.<% else %>,
+						last edited <%= time_ago_in_words(post.updated_at) %> ago.
+					<% end %>
+				</span>
+			</div>
+			
+			<div class="post_tree">
+				<% if post.parent %>
+					<%= link_to "In reply to", post_path(post.parent), class: "dark-link" %><br>
+					<!-- In reply to:<br> -->
+					<!-- "<%= link_to post.parent.title, post_path(post.parent), class: "dark-link" %>" <br> -->
+				<% end %>
+				<%= link_to "New reply", post_reply_path(post), class: "dark-link" %><br>
+				<% if post.replies.count %>
+					<%= link_to pluralize(post.replies.count, 'reply'), post_path(post), class: "dark-link" %>
+				<% end %>
+			</div>
 		</div>
-		<div class="post_tree">
-			<% if post.parent %>
-				In reply to "<%= link_to post.parent.title, post_path(post.parent), class: "dark-link" %>" <br>
-			<% end %>
-			<%= link_to "Reply to this post", post_reply_path(post), class: "dark-link" %> <br>
-			<% if post.replies.count %>
-				<%= pluralize(post.replies.count, 'reply') %>
-			<% end %>
+		
+		<div class="content">
+			<%= raw post.content %>
 		</div>
-	</div>
 	
-	<div class="post_content">
-		<%= raw post.content %>
-	</div>
-
-	<div class="post_comments">
-		<div class="">
-			<%= render post.comments %>
+		<div class="comments">
+			<a class="elide dark-link" onclick="elide('<%= dom_id post%>_comments'); toggle_plus('<%= dom_id post %>_comments_elide');">
+				<span id="<%= dom_id post %>_comments_elide" class="glyphicon glyphicon-plus"></span> comments
+			</a>
+			<div id="<%= dom_id post%>_comments" style="height: 0;">
+				<hr>
+				<%= render post.comments %>
+				<% if signed_in? %>
+					<% @comment = Comment.new() %>
+					<%= render partial: "/posts/form_comment", locals: {commentable: post, type: "Post"} %>
+				<% end %>
+			</div>
 		</div>
-		<% if signed_in? %>
-			<% @comment = Comment.new() %>
-			<%= render partial: "/posts/form_comment", locals: {commentable: post, type: "Post"} %>
-		<% end %>
 	</div>
-</div>
+</div> 

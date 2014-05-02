@@ -1,7 +1,7 @@
 class CommentsController < ApplicationController
 	def create
 
-		@comment = Comment.new(comment_params
+		@comment = Comment.new(comment_params)
 		@comment.user = current_user
 		if params[:commentable_type] == "Post"
 			@comment.commentable = Post.find_by(:id, params[:commentable_id])
