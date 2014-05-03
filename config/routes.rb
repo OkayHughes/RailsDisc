@@ -13,7 +13,8 @@ Example::Application.routes.draw do
   get "/sessions" => "sessions#index"
   match '/signout', to: 'sessions#destroy',     via: 'delete'
   match '/render_comments/', to: 'comments#render_comments', via: 'get'
-  match '/edit_comment_form/:id(.:format)', to: 'comments#send_form', via: 'get'
+  match '/reply/:id(.:format)', to: 'comments#reply', via: 'get'
+  match '/edit/:id(.:format)', to: 'comments#edit', via: 'get'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

@@ -1,0 +1,3 @@
+
+
+$('#comment_reply_<%= @id %>').html('<%= escape_javascript(render partial: "posts/form_comment", locals: {commentable: @commentable, type: "Comment"}) %>');

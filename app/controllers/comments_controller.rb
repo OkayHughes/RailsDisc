@@ -13,12 +13,41 @@ class CommentsController < ApplicationController
 		redirect_to request.referer
 	end
 
+	def destroy
+		@comment = Comment.find(params[:id])
+		@comment.destroy
+
+		redirect_to request.referer
+	end
+
 	def render_comments 
  			render @post.comments 
 	end
 
+	def update
+		@comment = Comment.find(params[:id])
 
-	def send_form
+		if @comment.update(comment_params)
+			redirect_to request.referer
+		end
+
+	end
+
+	def edit
+		@comment = Comment.find(params[:id])
+		@id = @comment.commentable_id
+		if @comment.commentable_type == "Post"
+			@commentable = Post.find( @id)
+		elsif @comment.commentable_type == "Comment"
+			@commentable = Comment.find(@id)
+		end
+		@id = @comment.id
+		respond_to do |format|
+			format.js
+		end
+	end
+
+	def reply
 		@comment = Comment.new()
 		@commentable = Comment.find(params[:id])
 		@id = params[:id]

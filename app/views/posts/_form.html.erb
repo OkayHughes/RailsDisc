@@ -1,5 +1,5 @@
 <div class="post_form">		
-<%= form_for @post, class: "input_group" do |f| %>
+<%= form_for @post, remote: true, class: "input_group" do |f| %>
 	<% if @post.parent %>
 		<%= f.hidden_field :parent_id, value: @post.parent.id %>
 	<% end %>
