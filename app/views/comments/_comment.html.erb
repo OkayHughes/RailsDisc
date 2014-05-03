@@ -1,28 +1,27 @@
 
-<span class="inline">
-<%= gravatar_for user: User.find(comment.user_id), size: "25", class: "comment_avatar"%>
-<br>
-<span class="filled inline">
-<%= raw comment.content   %>
-</span>
-</span>
-<br>
-<%= link_to "Reply", {controller: 'comments', action: 'send_form', id: comment.id}}, method: :get, remote: true%>
-<br>
-<div id="1"> </div>
-<br>
+
 <div class="comment">
 	<%= gravatar_for user: comment.user, size: "30", class: "comment_avatar"%>
 	<span class="comment_author"> <%= comment.user.name %> </span>
+	<div id="comment_edit_<%= comment.id %>">
 	<div class="comment_content">
 		<%= raw comment.content %>
+	</div>
 	</div>
 	<div class="comment_info">
 		<% if comment.updated_at != comment.created_at %> Edited <% end %>
 		<%= time_ago_in_words(comment.updated_at) %> ago
 		<% if comment.user == current_user %>
-			| edit
+			| Edit
 		<% end %>
-		| reply
+		<% if signed_in? %>
+		| <%= link_to "Reply", {controller: 'comments', action: 'send_form', id: comment.id}, method: :get, remote: true %>
+		<% end %>
 	</div>
+</div>
+<div id="comment_reply_<%= comment.id %>">
+
+</div>
+<div class="indent">
+<%= render comment.comments%>
 </div>

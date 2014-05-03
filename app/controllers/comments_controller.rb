@@ -12,16 +12,18 @@ class CommentsController < ApplicationController
 		@comment.save()
 		redirect_to request.referer
 	end
+
 	def render_comments 
  			render @post.comments 
 	end
+
 
 	def send_form
 		@comment = Comment.new()
 		@commentable = Comment.find(params[:id])
 		@id = params[:id]
 		respond_to do |format|
-			format.js {render layout: false}
+			format.js
 		end
 	end
 

@@ -54,7 +54,7 @@
 			</a>
 			<div id="<%= dom_id post%>_comments" style="height: 0;">
 				<hr>
-				<%= render post.comments %>
+				<%= render post.comments%>
 				<% if signed_in? %>
 					<% @comment = Comment.new() %>
 					<%= render partial: "/posts/form_comment", locals: {commentable: post, type: "Post"} %>
@@ -63,8 +63,4 @@
 		</div>
 	</div>
 
-	<% if signed_in? %>
-	<% @comment = Comment.new() %>
-	<%= render partial: "/posts/form_comment", locals: {commentable: post, type: "Post"} %>
-	<% end %>
 </div> 

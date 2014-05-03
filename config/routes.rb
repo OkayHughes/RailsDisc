@@ -2,6 +2,7 @@ Example::Application.routes.draw do
   root "posts#index"
   # User resources 
   resources :users, except: [:show]
+  match '/users/new', to: "users#new", via: "get"
   match "/users/:id", to: "users#access", via: "get"
   # Post resources
   resources :posts
