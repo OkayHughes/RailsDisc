@@ -16,11 +16,11 @@ $color-border: #CCC;
 $padding-base: 8px;
 $margin-base: 8px;
 
-.container {
-	padding: 0;
-}
-
 @import "bootstrap";
+
+.container {
+	padding: 0px;
+}
 
 $color-link: white;
 $color-link-hover: white;
