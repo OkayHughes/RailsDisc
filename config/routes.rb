@@ -2,6 +2,7 @@ Example::Application.routes.draw do
   root "posts#index"
   # User resources 
   resources :users, except: [:show]
+  match '/users/new', to: "users#new", via: "get"
   match "/users/:id", to: "users#access", via: "get"
   # Post resources
   resources :posts
@@ -12,6 +13,8 @@ Example::Application.routes.draw do
   get "/sessions" => "sessions#index"
   match '/signout', to: 'sessions#destroy',     via: 'delete'
   match '/render_comments/', to: 'comments#render_comments', via: 'get'
+  match '/reply/:id(.:format)', to: 'comments#reply', via: 'get'
+  match '/edit/:id(.:format)', to: 'comments#edit', via: 'get'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

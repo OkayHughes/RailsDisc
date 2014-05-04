@@ -1,15 +1,27 @@
+
+
 <div class="comment">
 	<%= gravatar_for user: comment.user, size: "30", class: "comment_avatar"%>
 	<span class="comment_author"> <%= comment.user.name %> </span>
-	<div class="comment_content">
-		<%= raw comment.content %>
+	<div id="comment_edit_<%= comment.id %>">
+		<div class="comment_content">
+			<%= raw comment.content %>
+		</div>
 	</div>
 	<div class="comment_info">
 		<% if comment.updated_at != comment.created_at %> Edited <% end %>
 		<%= time_ago_in_words(comment.updated_at) %> ago
 		<% if comment.user == current_user %>
-			| edit
+		| <%= link_to "Edit", controller: 'comments', action: 'edit', id: comment.id, remote: true%>
 		<% end %>
-		| reply
+		<% if signed_in? %>
+		| <%= link_to "Reply", controller: 'comments', action: 'reply', id: comment.id, remote: true%>
+		<% end %>
 	</div>
+</div>
+<div id="comment_reply_<%= comment.id %>">
+
+</div>
+<div class="indent" id="comments_comment_<%=comment.id %>">
+<%= render comment.comments%>
 </div>
