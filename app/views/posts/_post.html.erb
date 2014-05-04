@@ -53,14 +53,18 @@
 				<span id="<%= dom_id post %>_comments_elide" class="glyphicon glyphicon-plus"></span> comments
 			</a>
 			<div id="<%= dom_id post%>_comments" style="height: 0;">
-				<hr>
-				<%= render post.comments%>
-				<% if signed_in? %>
-					<% @comment = Comment.new() %>
-					<%= render partial: "/posts/form_comment", locals: {commentable: post, type: "Post"} %>
-				<% end %>
+				<div id="comments_post_<%= post.id %>">
+					<hr>
+					<%= render post.comments%>
+				</div>
+			<% if signed_in? %>
+			<% @comment = Comment.new() %>
+			<%= render partial: "/posts/form_comment", locals: {commentable: post, type: "Post"} %>
+			<% end %>
 			</div>
 		</div>
-	</div>
 
+	</div>
 </div> 
+
+

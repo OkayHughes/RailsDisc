@@ -1,9 +1,9 @@
 
-<span class=" inline">		
-<%= form_for @comment do |f| %>
-	<p> <%= f.text_area :content, cols: "70" , rows: "2", class: "form-control", id:"comment_form"%> </p>
-	<%= f.hidden_field :commentable_type, :value => type %>
-	<%= f.hidden_field :commentable_id, :value => commentable.id %>
-	<p class="right"><%= f.submit class: "btn btn-primary pull-right"%></p>
-<% end %>
+<span class=" inline">	
+	<%= form_for @comment, remote: true, class: 'form-horizontal' do |f| %>
+		<p> <%= f.text_area :content, cols: "70" , rows: "2", class: "form-control	", id:"comment_form"%> </p>
+		<%= f.hidden_field :commentable_type, :value => type %>
+		<%= f.hidden_field :commentable_id, :value => commentable.id %>
+		<p class="right"><%= f.submit class: "btn btn-primary pull-right"%></p>
+		<% end %>
 </span>

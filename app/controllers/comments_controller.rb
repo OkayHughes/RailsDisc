@@ -1,16 +1,20 @@
 class CommentsController < ApplicationController
-	def create
 
+	def create
 		@comment = Comment.new(comment_params)
 		@comment.user = current_user
-		if params[:commentable_type] == "Post"
-			@comment.commentable = Post.find_by(:id, params[:commentable_id])
-		elsif params[:commentable_type] == "Comment"
-			@comment.commentable = Comment.find_by(:id, params[:commentable_id])
+		if @comment.commentable_type == "Post"
+			@comment.commentable = Post.find(@comment.commentable_id)
+			@div_id = "comments_post_#{@comment.commentable_id}"
+		elsif @comment.commentable_type == "Comment"
+			@comment.commentable = Comment.find(@comment.commentable_id)
+			@div_id = "comments_comment_#{@comment.commentable_id}"
 		end
-		
 		@comment.save()
-		redirect_to request.referer
+		respond_to do |format|
+			format.js 
+			format.html {}
+		end
 	end
 
 	def destroy
@@ -27,8 +31,15 @@ class CommentsController < ApplicationController
 	def update
 		@comment = Comment.find(params[:id])
 
-		if @comment.update(comment_params)
-			redirect_to request.referer
+		@comment.update(comment_params)
+
+		if @comment.commentable_type == "Post"
+			@div_id = "comments_post_#{@comment.commentable.id}"
+		elsif @comment.commentable_type == "Comment"
+			@div_id = "comments_comment_#{@comment.commentable.id}"
+		end
+		respond_to do |format|
+			format.js
 		end
 
 	end
@@ -41,6 +52,7 @@ class CommentsController < ApplicationController
 		elsif @comment.commentable_type == "Comment"
 			@commentable = Comment.find(@id)
 		end
+
 		@id = @comment.id
 		respond_to do |format|
 			format.js
@@ -52,14 +64,14 @@ class CommentsController < ApplicationController
 		@commentable = Comment.find(params[:id])
 		@id = params[:id]
 		respond_to do |format|
-			format.js
+			format.js {}
+			format.html 
 		end
 	end
 
 
-	private
-	def comment_params
-			params.require(:comment).permit(:content, :commentable, :commentable_id, :commentable_type)
 
+	def comment_params
+		params.require(:comment).permit(:content, :commentable, :commentable_id, :commentable_type)
 	end
 end
