@@ -27,6 +27,17 @@
 		<% if signed_in? %>
 			<div class="btn-group">
 			 <button type="button" class="btn btn-default dropdown-toggle navbar_button" data-toggle="dropdown">
+			 Groups <span class="caret"></span>
+			 </button>
+			  <ul class="dropdown-menu dropdown-menu-right" role="menu">
+			  	<% get_groups(current_user).each do |g| %>
+					<li><%= link_to g, root_url  %></li>
+			  	<% end %>
+			  </ul>
+			 </div>
+
+			<div class="btn-group">
+			 <button type="button" class="btn btn-default dropdown-toggle navbar_button" data-toggle="dropdown">
 			 User <span class="caret"></span>
 			 </button>
 			  <ul class="dropdown-menu dropdown-menu-right" role="menu">
