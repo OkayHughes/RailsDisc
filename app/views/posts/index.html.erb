@@ -1,5 +1,7 @@
-<% for post in @posts.reverse %>
+
+<% for post in @posts %>
 	<% if post.parent == nil %>
 		<%= render post %>
 	<% end %>
 <% end %>
+<%= will_paginate @posts, renderer: BootstrapPagination::Rails %>

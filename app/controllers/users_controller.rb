@@ -65,6 +65,7 @@ class UsersController < ApplicationController
 
   def access
     @user = User.find(params[:id])
+    @posts = @user.posts.paginate(page: params[:page], per_page: 10).order('updated_at DESC')
     if signed_in?
       if current_user.password_digest != (@user).password_digest
         redirect_to root_url
