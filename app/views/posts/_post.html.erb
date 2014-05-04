@@ -53,8 +53,8 @@
 				<span id="<%= dom_id post %>_comments_elide" class="glyphicon glyphicon-plus"></span> comments
 			</a>
 			<div id="<%= dom_id post%>_comments" style="height: 0;">
-				<div id="comments_post_<%= post.id %>">
 					<hr>
+				<div id="comments_post_<%= post.id %>">
 					<%= render post.comments%>
 				</div>
 			<% if signed_in? %>
