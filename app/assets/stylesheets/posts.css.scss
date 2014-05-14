@@ -97,6 +97,11 @@ $collapse-width: 768px;
 	padding-bottom: 45px;
 	margin-top:20px;
 }
+
+.post_form textarea {
+	resize: vertical;
+}
+
 .inline {
 	display: inline-block;
 }
@@ -104,7 +109,7 @@ $collapse-width: 768px;
 .word_wrap {
 	white-space:normal;
 	overflow-wrap: break-word;
-   word-wrap: break-word;      /* IE */
+	word-wrap: break-word;      /* IE */
 }
 
 .post_replies {

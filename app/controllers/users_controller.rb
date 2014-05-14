@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :edit, :update, :destroy]
+  before_action :set_user, only: [ :edit, :update, :destroy]
   # GET /users
   # GET /users.json
   def index
@@ -9,7 +9,9 @@ class UsersController < ApplicationController
   # GET /users/1
   # GET /users/1.json
   def show
-
+    @user = User.find_by_name(params[:id])
+    @posts = @user.posts.paginate(page: params[:page], per_page: 10).order('updated_at DESC')
+    
   end
   # GET /users/new
   def new
@@ -29,7 +31,7 @@ class UsersController < ApplicationController
       if @user.save
         format.html { 
           sign_in @user          
-          redirect_to @user, notice: 'User was successfully created.'
+          redirect_to user_path(@user.name), notice: 'User was successfully created.'
         }
         format.json { render action: 'show', status: :created, location: @user }
       else
@@ -60,18 +62,6 @@ class UsersController < ApplicationController
     respond_to do |format|
       format.html { redirect_to users_url }
       format.json { head :no_content }
-    end
-  end
-
-  def access
-    @user = User.find(params[:id])
-    @posts = @user.posts.paginate(page: params[:page], per_page: 10).order('updated_at DESC')
-    if signed_in?
-      if current_user.password_digest != (@user).password_digest
-        redirect_to root_url
-      end
-    else
-      redirect_to root_url
     end
   end
 

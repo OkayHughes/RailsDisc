@@ -1,20 +1,15 @@
 <p id="notice"><%= notice %></p>
+<div class="user_profile">
+	<%= gravatar_for user: @user, class: "avatar_down", size: "78"%>
+	<div class="user_profile_bar">
 
-<p>
-<%= gravatar_for user: @user %>  
-<strong>Name:</strong>
-  <%= @user.name %>
-</p>
+		<strong>Group:</strong> <%= @user.group -%>,
+		<strong>Name:</strong> <%= @user.name %> 	
 
-<p>
-  <strong>Group:</strong>
-  <%= @user.group %>
-</p>
-
-<p>
-  <strong>Email:</strong>
-  <%= @user.email %>
-</p>
-
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', root_url%>
+		<br>
+		<%= link_to 'Edit', edit_user_path(@user) %> |
+		<%= link_to 'Back', root_url%>
+	</div>
+</div>
+<%=render @posts %>
+<%= will_paginate @posts, renderer: BootstrapPagination::Rails %>

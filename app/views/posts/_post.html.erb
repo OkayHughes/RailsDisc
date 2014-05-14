@@ -23,7 +23,7 @@
 				
 				<!-- Date time etc. -->
 				<span class="post_info">
-					By <%= link_to post.user.name, user_path(post.user), class: "dark-link"%>,
+					By <%= link_to post.user.name, user_path(post.user.name), class: "dark-link"%>,
 					posted <%= time_ago_in_words(post.created_at) %>
 					ago<% if post.created_at == post.updated_at -%>.<% else %>,
 						last edited <%= time_ago_in_words(post.updated_at) %> ago.
@@ -58,6 +58,7 @@
 
 					<%= render post.comments%>
 				</div>
+
 				<% if signed_in? %>
 					<% @comment = Comment.new() %>
 					<%= render partial: "/posts/form_comment", locals: {commentable: post, type: "Post"} %>

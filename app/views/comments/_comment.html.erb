@@ -1,7 +1,9 @@
 
 
 <div class="comment">
-	<%= gravatar_for user: comment.user, size: "30", class: "comment_avatar"%>
+	<%= link_to user_path(comment.user) do %>
+		<%= gravatar_for user: comment.user, size: "30", class: "comment_avatar" -%>
+	<% end %>
 	<span class="comment_author"> <%= comment.user.name %> </span>
 	<div id="comment_edit_<%= comment.id %>">
 		<div class="comment_content">

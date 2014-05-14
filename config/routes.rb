@@ -3,7 +3,7 @@ Example::Application.routes.draw do
   # User resources 
   resources :users, except: [:show]
   match '/users/new', to: "users#new", via: "get"
-  match "/users/:id", to: "users#access", via: "get"
+  match "/users/:id", to: "users#show", via: "get"
   # Post resources
   resources :posts
   get "/posts/reply/:id" => "posts#reply"
