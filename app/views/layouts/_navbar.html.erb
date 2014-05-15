@@ -30,8 +30,11 @@
 			 Groups <span class="caret"></span>
 			 </button>
 			  <ul class="dropdown-menu dropdown-menu-right" role="menu">
-			  	<% get_groups(current_user).each do |g| %>
-					<li><%= link_to g, root_url  %></li>
+			  	<li> <%= link_to 'New', new_group_path %></li>
+			  	<li> <%= link_to 'All', groups_path %></li>
+			  	<li class="divider"></li>
+			  	<% current_user.groups.each do |g| %>
+					<li><%= link_to g.title, root_url  %></li>
 			  	<% end %>
 			  </ul>
 			 </div>

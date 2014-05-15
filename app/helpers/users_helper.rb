@@ -21,7 +21,4 @@ module UsersHelper
 		gravatar_url = "https://secure.gravatar.com/avatar/#{gravatar_id}?s=#{size}&d=identicon"
 		image_tag(gravatar_url, alt: name, class: c)
 	end
-	def get_groups(user)
-		user.group.split(", ")
-	end
 end

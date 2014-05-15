@@ -3,7 +3,9 @@
 	<%= gravatar_for user: @user, class: "avatar_down", size: "78"%>
 	<div class="user_profile_bar">
 
-		<strong>Group:</strong> <%= @user.group -%>,
+		<strong>Group:</strong> <%@user.groups.each do |t|%>
+		<%= t.title  + " "%>
+		<% end %>
 		<strong>Name:</strong> <%= @user.name %> 	
 
 		<br>

@@ -1,9 +1,11 @@
 class User < ActiveRecord::Base
+    has_and_belongs_to_many :groups
 	before_save {self.email = email.downcase}
 	before_create :create_remember_token
-	has_many :posts
+	has_many :posts, dependent: :destroy
+	has_many :comments, dependent: :destroy
 	validates :name, presence: true, length: {maximum: 50}
-	validates :group, presence: true
+	#validates :group, presence: true
 	VALID_EMAIL_REGEX = /[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}/i
 	validates :email, presence: true, format: {with: VALID_EMAIL_REGEX},
 		uniqueness: {case_sensitive: false}

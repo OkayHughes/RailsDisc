@@ -1,5 +1,4 @@
 
-
 <div class="comment">
 	<%= link_to user_path(comment.user) do %>
 		<%= gravatar_for user: comment.user, size: "30", class: "comment_avatar" -%>
@@ -25,5 +24,7 @@
 
 </div>
 <div class="indent" id="comments_comment_<%=comment.id %>">
+
 <%= render comment.comments%>
+
 </div>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140514205149) do
+ActiveRecord::Schema.define(version: 20140515013919) do
 
   create_table "comments", force: true do |t|
     t.text     "content"
@@ -27,10 +27,15 @@ ActiveRecord::Schema.define(version: 20140514205149) do
 
   create_table "groups", force: true do |t|
     t.text    "title"
+    t.integer "author_id"
+  end
+
+  create_table "groups_users", id: false, force: true do |t|
+    t.integer "group_id"
     t.integer "user_id"
   end
 
-  add_index "groups", ["user_id"], name: "index_groups_on_user_id"
+  add_index "groups_users", ["group_id", "user_id"], name: "index_groups_users_on_group_id_and_user_id"
 
   create_table "posts", force: true do |t|
     t.text     "title"
@@ -39,9 +44,10 @@ ActiveRecord::Schema.define(version: 20140514205149) do
     t.datetime "updated_at"
     t.integer  "user_id"
     t.integer  "parent_id"
-    t.string   "group"
+    t.integer  "group"
   end
 
+  add_index "posts", ["group"], name: "index_posts_on_group"
   add_index "posts", ["user_id"], name: "index_posts_on_user_id"
 
   create_table "users", force: true do |t|
@@ -51,7 +57,6 @@ ActiveRecord::Schema.define(version: 20140514205149) do
     t.datetime "updated_at"
     t.string   "password_digest"
     t.string   "remember_token"
-    t.string   "group"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

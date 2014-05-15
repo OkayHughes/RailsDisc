@@ -23,7 +23,6 @@ def create
 	@post.user = current_user
 	Rails.logger.debug(params[:parent_d])
 	if params[:parent_id] != nil
-		Rails.logger.debug("This made it through")
 		@post.parent = Posts.find_by(:id, params[:parent_id])
 	end
 

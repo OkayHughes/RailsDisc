@@ -1,0 +1,25 @@
+<div class="formdiv">
+<%= form_for(@group, class: "form") do |f| %>
+  <% if @group.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@group.errors.count, "error") %> prohibited this user from being saved:</h2>
+
+      <ul>
+      <% @group.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= f.text_field :title, placeholder: "Title", class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.hidden_field :author_id, value: current_user.id, class: "form-control" %>
+  </div>
+   <div class="form-group">
+    <%= f.submit class: "btn btn-primary pull-right" %>
+  </div>
+<% end %>
+</div>
