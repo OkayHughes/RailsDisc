@@ -2,7 +2,7 @@
 <%= form_for(@group, class: "form") do |f| %>
   <% if @group.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@group.errors.count, "error") %> prohibited this user from being saved:</h2>
+      <h2><%= pluralize(@group.errors.count, "error") %> prohibited this group from being saved:</h2>
 
       <ul>
       <% @group.errors.full_messages.each do |msg| %>

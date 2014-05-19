@@ -24,6 +24,7 @@
 				<!-- Date time etc. -->
 				<span class="post_info">
 					By <%= link_to post.user.name, user_path(post.user.name), class: "dark-link"%>,
+					in group <%= link_to post.group.title, group_path(post.group), class: "dark-link" %>, 
 					posted <%= time_ago_in_words(post.created_at) %>
 					ago<% if post.created_at == post.updated_at -%>.<% else %>,
 						last edited <%= time_ago_in_words(post.updated_at) %> ago.

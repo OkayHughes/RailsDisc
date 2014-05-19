@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140515013919) do
+ActiveRecord::Schema.define(version: 20140519010833) do
 
   create_table "comments", force: true do |t|
     t.text     "content"
@@ -44,10 +44,10 @@ ActiveRecord::Schema.define(version: 20140515013919) do
     t.datetime "updated_at"
     t.integer  "user_id"
     t.integer  "parent_id"
-    t.integer  "group"
+    t.integer  "group_id"
   end
 
-  add_index "posts", ["group"], name: "index_posts_on_group"
+  add_index "posts", ["group_id"], name: "index_posts_on_group_id"
   add_index "posts", ["user_id"], name: "index_posts_on_user_id"
 
   create_table "users", force: true do |t|

@@ -21,7 +21,7 @@ end
 def create
 	@post = Post.new(post_params)
 	@post.user = current_user
-	Rails.logger.debug(params[:parent_d])
+	Rails.logger.debug(params[:parent_id])
 	if params[:parent_id] != nil
 		@post.parent = Posts.find_by(:id, params[:parent_id])
 	end
@@ -59,7 +59,7 @@ private
 	def post_params
 		params.
 			require(:post).
-			permit(:title, :content, :parent_id)
+			permit(:title, :content, :parent_id, :group_id)
 	end
 
 end

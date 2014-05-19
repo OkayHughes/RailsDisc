@@ -1,1 +1,5 @@
-<%= link_to group.title, groups_path, class: "link" %> <br>
+<%= form_tag("/groups/add", method: "post") do %>
+	<%= hidden_field_tag(:group_id, group.id) %>
+	<%= hidden_field_tag(:user_id, current_user.id) %>
+	<%= submit_tag(group.title, class: "link") %>
+<% end %>
