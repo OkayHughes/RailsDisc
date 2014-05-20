@@ -23,8 +23,11 @@
 <div id="comment_reply_<%= comment.id %>">
 
 </div>
+<% if comment.depth < 14 %>
 <div class="indent" id="comments_comment_<%=comment.id %>">
-
+<% else %>
+<div id="comments_comment_<%=comment.id %>">
+<% end %>
 <%= render comment.comments%>
 
 </div>

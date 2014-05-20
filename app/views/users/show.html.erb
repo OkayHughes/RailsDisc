@@ -3,10 +3,10 @@
 	<%= gravatar_for user: @user, class: "avatar_down", size: "78"%>
 	<div class="user_profile_bar">
 
+		<strong>Name:</strong> <%= @user.name %>
 		<strong>Group:</strong> <%@user.groups.each do |t|%>
 		<%= t.title  + " "%>
-		<% end %>
-		<strong>Name:</strong> <%= @user.name %> 	
+		<% end %> 	
 
 		<br>
 		<%= link_to 'Edit', edit_user_path(@user), class: "dark-link" %> |

@@ -4,8 +4,6 @@
 @import "bootstrap_config.scss";
 
 .grouplist {
-	background-color: white;
-	border-radius: 5px;
 	min-height:400px;
 }
 .grouplist h1{
@@ -36,4 +34,13 @@
 	margin-bottom: 20px;
 }
 
+.group_link {
+	margin-top:10px;
+	background: $color-topbar;
+	border-radius: $border-radius-small $border-radius-small 0 0;
+}
+.group_description {
+	background: $color-secondary;
+	border-radius: 0 0 $border-radius-small $border-radius-small;
+}
 

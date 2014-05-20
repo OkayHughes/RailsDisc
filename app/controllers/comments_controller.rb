@@ -6,9 +6,13 @@ class CommentsController < ApplicationController
 		if @comment.commentable_type == "Post"
 			@comment.commentable = Post.find(@comment.commentable_id)
 			@div_id = "comments_post_#{@comment.commentable_id}"
+			@post_id = "post_comments_reply_#{@comment.commentable_id}"
+			@comment.depth = 0
 		elsif @comment.commentable_type == "Comment"
 			@comment.commentable = Comment.find(@comment.commentable_id)
 			@div_id = "comments_comment_#{@comment.commentable_id}"
+ 			@post_id = ""
+			@comment.depth = @comment.commentable.depth + 1
 		end
 		@comment.save()
 		respond_to do |format|

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140519010833) do
+ActiveRecord::Schema.define(version: 20140520034646) do
 
   create_table "comments", force: true do |t|
     t.text     "content"
@@ -20,6 +20,7 @@ ActiveRecord::Schema.define(version: 20140519010833) do
     t.integer  "commentable_id"
     t.integer  "user_id"
     t.string   "commentable_type"
+    t.integer  "depth"
   end
 
   add_index "comments", ["commentable_id"], name: "index_comments_on_commentable_id"
@@ -28,6 +29,7 @@ ActiveRecord::Schema.define(version: 20140519010833) do
   create_table "groups", force: true do |t|
     t.text    "title"
     t.integer "author_id"
+    t.string  "description"
   end
 
   create_table "groups_users", id: false, force: true do |t|

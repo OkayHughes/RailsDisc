@@ -57,14 +57,15 @@
 				<br>
 				<div id="comments_post_<%= post.id %>">
 
-					<%= render post.comments%>
+					<%= render post.comments, locals: {depth:0}%>
 					
 				</div>
-
+				<div id="post_comment_reply_<%=post.id%>">
 				<% if signed_in? %>
 					<% @comment = Comment.new() %>
 					<%= render partial: "/posts/form_comment", locals: {commentable: post, type: "Post"} %>
 				<% end %>
+				</div>
 			</div>
 		</div>
 
